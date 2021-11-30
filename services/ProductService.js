@@ -1,4 +1,4 @@
-const productModel = require('../models/productModel');
+const productModel = require('../models/ProductModel');
 
 exports.createAProduct=(req,res)=>{
     if(req.body.prodName && req.body.brandId && req.body.price && req.body.categoryId && req.body.photoUrl ) {

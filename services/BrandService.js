@@ -1,4 +1,4 @@
-const brandModel = require('../models/brandModel');
+const brandModel = require('../models/BrandModel');
 
 exports.createABrand=(req,res)=>{
     if(req.body.brandName && req.body.photoUrl) {

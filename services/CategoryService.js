@@ -1,4 +1,4 @@
-const categoryModel = require('../models/categoryModel');
+const categoryModel = require('../models/CategoryModel');
 
 exports.createACategory=(req,res)=>{
     if(req.body.categoryName && req.body.photoUrl) {
