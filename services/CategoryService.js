@@ -41,34 +41,28 @@ exports.readAllCategories=(req,res)=>{
 }
 
 exports.readACategory=(req,res)=>{
-    let categoryId ="";
-    categoryModel.findOne()
-        .where("categoryName").equals(req.params.categoryName)
+    categoryModel.findById(req.params.categoryId)
         .then(category=>{
-            categoryId= category.id;
-        })
-        .then(()=>{
-            categoryModel.findById(categoryId)
-                .then(category=>{
-                    if(category){
-                        res.json({
-                            message: `The category with name ${req.params.categoryName}`,
-                            data: category
-                        })
-                    }
-                    else {
-                        res.json({
-                            message: `There is no category with name ${req.params.categoryName}`,
-                        })
-                    }
+            if(category){
+                res.json({
+                    message: `The category with id ${req.params.categoryId}`,
+                    data: category
                 })
-                .catch(err=>{
-                    res.status(404).json({
-                        message: `${err}`
-                    })
+            }
+            else {
+                res.json({
+                    message: `There is no category with id ${req.params.categoryId}`,
                 })
+            }
         })
+        .catch(err=>{
+            res.status(404).json({
+                message: `${err}`
+            })
+        })
+
 }
+
 
 exports.updateACategory=(req,res)=>{
     let isValid = true;

@@ -1,14 +1,13 @@
 const promotionsModel = require('../models/PromotionModel');
 
 exports.createAPromotion=(req,res)=>{
-    if(req.body.promotionName && req.body.photoUrl && req.body.startDate && req.body.endDate && req.body.detailedUrl){
+    if(req.body.startDate && req.body.endDate){
         const promotion = new promotionsModel({
+            productId : req.body.productId,
             promotionName : req.body.promotionName,
-            photoUrl : req.body.photoUrl,
-            detailedUrl: req.body.detailedUrl,
             description: req.body.description,
             startDate : new Date(req.body.startDate),
-            endDate : new Date(req.body.startDate)
+            endDate : new Date(req.body.endDate)
         });
         promotion.save()
             .then(newPromotion=>{
@@ -105,9 +104,7 @@ exports.readAPromotion=(req,res)=>{
 
 exports.updateAPromotion=(req,res)=>{
     let isValid = true;
-    if(typeof(req.body.promotionName) !== "undefined" && req.body.promotionName.length===0) isValid=false;
-    else if(typeof(req.body.photoUrl) !== "undefined" && req.body.photoUrl.length===0) isValid=false;
-    else if(typeof(req.body.detailedUrl) !== "undefined" && req.body.detailedUrl.length===0) isValid=false;
+    if(req.body.productId !== "undefined" && req.body.productId.length===0) isValid=false;
     else if(typeof(req.body.startDate) !== "undefined" && req.body.startDate.length===0) isValid=false;
     else if(typeof(req.body.endDate) !== "undefined" && req.body.endDate.length===0) isValid=false;
 

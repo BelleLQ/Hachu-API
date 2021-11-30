@@ -8,6 +8,7 @@
     const productController = require('./controllers/ProductController.js');
     const categoryController = require('./controllers/CategoryController.js');
     const brandController = require('./controllers/BrandController.js');
+    const promotionController = require('./controllers/PromotionController');
 
     const cors = require('cors');
     const whitelist = ['http://localhost:3001', 'http://127.0.0.1:3001', 'https://flamboyant-morse-789f6d.netlify.app']
@@ -32,6 +33,8 @@
     app.use("/products", productController);
     app.use("/categories", categoryController);
     app.use("/brands", brandController);
+    app.use("/promotions", promotionController);
+
 
     // Non-existing endpoint
     app.use((req, res) =>{

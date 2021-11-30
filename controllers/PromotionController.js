@@ -7,7 +7,7 @@ const promotionService = require('../services/PromotionService');
 router.post('/', promotionService.createAPromotion);
 
 //read all
-router.get('/', promotionService.readAllPromotions);
+router.get('/', promotionService.readPromotionsHistory);
 
 //read 1
 router.get('/:promotionId', promotionService.readAPromotion);

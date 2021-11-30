@@ -10,7 +10,7 @@ router.post('/', categoryService.createACategory);
 router.get('/', categoryService.readAllCategories);
 
 //read 1
-router.get('/:categoryName', categoryService.readACategory);
+router.get('/:categoryId', categoryService.readACategory);
 
 //update
 router.put('/:categoryId', categoryService.updateACategory);

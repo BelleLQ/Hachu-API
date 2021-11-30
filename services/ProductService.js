@@ -24,12 +24,12 @@ exports.createAProduct=(req,res)=>{
 
 }
 exports.readAllProducts=(req,res)=>{
-    if(req.query.categoryId && req.query.categoryId!=="619bf5997f4ec5fb37199093"){
+    if(req.query.categoryId && req.query.categoryId!="619bf5997f4ec5fb37199093"){
         productModel.find({ "categoryId": req.query.categoryId})
             .sort({'prodName':1})
             .then((products)=>{
                 res.json({
-                    message:`A list of products with category ${req.query.categoryId}`,
+                    message:`A list of products with category id ${req.query.categoryId}`,
                     data: products,
                     totalProducts: products.length
                 })

@@ -2,20 +2,15 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const promotionSchema = new Schema({
+    productId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Product',
+    },
     promotionName:{
         type : String,
-        required : true
     },
     description:{
         type : String,
-    },
-    photoUrl:{
-        type: String,
-        required: true
-    },
-    detailedUrl:{
-        type: String,
-        required:true
     },
     startDate:{
         type: Date,
