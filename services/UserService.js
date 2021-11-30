@@ -1,4 +1,4 @@
-const userModel = require('../models/UserModel');
+const userModel = require('../models/UserModel.js');
 
 exports.createAUser=(req,res)=>{
     if(req.body.firstName && req.body.lastName && req.body.email && req.body.password ) {
