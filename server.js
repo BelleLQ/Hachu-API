@@ -11,7 +11,7 @@
     const promotionController = require('./controllers/PromotionController');
 
     const cors = require('cors');
-    const whitelist = ['http://localhost:3001', 'http://127.0.0.1:3001', 'https://optimistic-thompson-bbce25.netlify.app']
+    const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://optimistic-thompson-bbce25.netlify.app']
     const corsOptionsDelegate = function (req, callback) {
         let corsOptions;
         if (whitelist.indexOf(req.header('Origin')) !== -1) {
