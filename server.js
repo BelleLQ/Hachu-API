@@ -11,24 +11,23 @@
     const promotionController = require('./controllers/PromotionController');
 
     const cors = require('cors');
-    // const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://hachu.bellelq.com']
-    // const corsOptionsDelegate = function (req, callback) {
-    //     let corsOptions;
-    //     if (whitelist.indexOf(req.header('Origin')) !== -1) {
-    //         corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-    //     } else {
-    //         corsOptions = { origin: false } // disable CORS for this request
-    //     }
-    //     callback(null, corsOptions) // callback expects two parameters: error and options
-    // }
+    const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://hachu.bellelq.com', 'hachu.bellelq.com','http://hachu.bellelq.com','https://hachu.bellelq.com/']
+    const corsOptionsDelegate = function (req, callback) {
+        let corsOptions;
+        if (whitelist.indexOf(req.header('Origin')) !== -1) {
+            corsOptions = { origin: true } //reflect (enable) the requested origin in the CORS response
+        } else {
+            corsOptions = { origin: false } //disable CORS for this request
+        }
+        callback(null, corsOptions) //callback expects two parameters: error and options
+    }
 
     if(process.env.NODE_ENV!=="production"){
         require('dotenv').config({path:'config/keys.env'})
     }
 
     app.use(express.json());
-    // app.use(cors(corsOptionsDelegate));
-    cors({ origin: "https://hachu.bellelq.com", credentials: true })
+    app.use(cors(corsOptionsDelegate));
 
     app.use("/users", userController);
     app.use("/products", productController);
