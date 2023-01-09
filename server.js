@@ -11,7 +11,7 @@
     const promotionController = require('./controllers/PromotionController');
 
     const cors = require('cors');
-    const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://hachu.bellelqweb.com']
+    const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://hachu.bellelq.com']
     const corsOptionsDelegate = function (req, callback) {
         let corsOptions;
         if (whitelist.indexOf(req.header('Origin')) !== -1) {
